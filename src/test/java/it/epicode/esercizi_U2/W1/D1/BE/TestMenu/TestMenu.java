@@ -83,14 +83,3 @@ public class TestMenu {
 
 }
 
-
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.datasource.url=jdbc:h2:mem:quofinddb;DB_CLOSE_ON_EXIT=FALSE
-spring.datasource.username=sa
-spring.datasource.password=sa
-
-        <dependency>
-             <groupId>com.h2database</groupId>
-             <artifactId>h2</artifactId>
-             <scope>runtime</scope>
-</dependency>
