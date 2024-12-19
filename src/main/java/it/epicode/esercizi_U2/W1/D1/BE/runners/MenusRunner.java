@@ -33,7 +33,7 @@ public class MenusRunner implements ApplicationRunner {
     private ToppingRepository toppingRepository;
 
 
-        public void stampaMenu() {
+    public void stampaMenu() {
         System.out.println("Pizzas: ");
         List<Pizza> pizze = pizzaRepository.findAll();
         for (Pizza pizza : pizze) {
@@ -47,18 +47,22 @@ public class MenusRunner implements ApplicationRunner {
         }
 
 
-        System.out.println("\nDrinks " );
+        System.out.println("\nDrinks ");
         List<Bevanda> bevande = bevandaRepository.findAll();
         for (Bevanda bevanda : bevande) {
             System.out.println("Nome: " + bevanda.getNome() + "\nCalorie: " + bevanda.getPrezzo() + "\nPrezzo: " + bevanda.getCalorie());
         }
 
 
-}
+    }
+
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-            stampaMenu();
+        stampaMenu();
+        menuRepository.findByOrderByPrezzo().forEach(menu -> System.out.println("Menu ordinato per prezzo: " + menu.getNome()));
+
 
     }
 

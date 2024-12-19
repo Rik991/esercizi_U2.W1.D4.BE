@@ -22,7 +22,6 @@ public class TestMenu {
     private MenuRepository menuRepository;
 
 
-
     @Test
     @DisplayName("Test per il salvataggio delle pizze")
     public void testSavePizze() {
@@ -80,8 +79,18 @@ public class TestMenu {
         bevanda3.setPrezzo(3.0);
         menuRepository.save(bevanda3);
     }
-    
-
 
 
 }
+
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.datasource.url=jdbc:h2:mem:quofinddb;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.username=sa
+spring.datasource.password=sa
+
+        <dependency>
+             <groupId>com.h2database</groupId>
+             <artifactId>h2</artifactId>
+             <scope>runtime</scope>
+</dependency>

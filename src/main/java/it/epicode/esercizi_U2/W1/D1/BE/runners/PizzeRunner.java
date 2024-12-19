@@ -32,5 +32,14 @@ public class PizzeRunner implements ApplicationRunner {
         pizzaRepository.save(newPizzaHawaaiiana);
         pizzaRepository.save(newPizzaSalame);
 
+        System.out.println("Pizza Margherita: " + pizzaRepository.findPizzaByNome("Margherita").getNome());
+
+        pizzaRepository.findPizzaByPrezzoBetween(2, 6).forEach(pizza -> System.out.println("\"Pizze che costano tra 2 e 6 euro: " + pizza.getNome()));
+
+        pizzaRepository.findPizzaByCalorieOrderByCalorieDesc(1104).forEach(pizza -> System.out.println("Pizze con 1104 calorie: " + pizza.getNome()));
+
+        pizzaRepository.findByOrderByCalorieDesc().forEach(pizza -> System.out.println("Pizze ordinate per calorie: " + pizza.getNome()));
+
+
     }
 }
